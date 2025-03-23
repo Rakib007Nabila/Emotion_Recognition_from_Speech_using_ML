@@ -130,21 +130,103 @@ We implemented and trained four different models:
 - Dropout Regularization to prevent overfitting.
 
 - Softmax Activation for classification.
+```
+from tensorflow.keras import layers, models
+
+cnn_model = models.Sequential([
+    layers.Conv1D(64, kernel_size=3, activation='relu', input_shape=(X_train.shape[1], 1)),
+    layers.BatchNormalization(),
+    layers.MaxPooling1D(pool_size=2),
+    layers.Flatten(),
+    layers.Dense(256, activation='relu'),
+    layers.Dropout(0.5),
+    layers.Dense(4, activation='softmax')
+])
+
+cnn_model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+```
 
 **2. Support Vector Machine (SVM)**
   
 - Kernel: Radial Basis Function ('rbf').
 
 - Hyperparameter Tuning using GridSearchCV.
+```
+from sklearn.svm import SVC
+svm_model = SVC(kernel='rbf', C=10, gamma='scale')
+svm_model.fit(X_train, y_train.argmax(axis=1))
+```
 
 **3. Random Forest Classifier**
 
 - Trained using 100 decision trees (n_estimators=100).
 
 - Feature importance analysis for better accuracy.
+```
+from sklearn.ensemble import RandomForestClassifier
+rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_model.fit(X_train, y_train.argmax(axis=1))
+```
 
 **4. XGBoost Classifier**
 
 - Optimized using GridSearchCV.
 
 - Learning rate and depth tuning.
+```
+from xgboost import XGBClassifier
+xgb_model = XGBClassifier(n_estimators=100, learning_rate=0.1, max_depth=5, use_label_encoder=False, eval_metric='mlogloss')
+xgb_model.fit(X_train, y_train.argmax(axis=1))
+
+```
+5️⃣ **Model Evaluation & Selection**
+
+We compare model performances and save the best-performing model
+```
+model_performance = {
+    "CNN": cnn_accuracy,
+    "SVM": svm_acc,
+    "Random_Forest": rf_acc,
+    "XGBoost": xgb_acc
+}
+
+best_model_name = max(model_performance, key=model_performance.get)
+
+if best_model_name == "CNN":
+    cnn_model.save("best_model.h5")
+else:
+    import joblib
+    joblib.dump(eval(best_model_name.lower() + "_model"), "best_model.pkl")
+```
+
+6️⃣ **Testing with New Audio Files**
+
+- Load the saved model and test with a new .wav file.
+
+- Extract MFCC features, reshape, and predict emotion.
+
+📌 # Results
+## 📊 Model Performance Comparison
+
+| **Model**          | **Accuracy** |
+|--------------------|-------------|
+| **CNN**           | 87.5%  |
+| **SVM**           | 82.3%    |
+| **Random Forest** | 84.1%    |
+| **XGBoost**       | 85.7%    |
+
+**Best Model:** CNN (87.5%)
+
+# Installation & Usage
+**Install Dependencies**
+```
+pip install librosa numpy pandas scikit-learn tensorflow matplotlib xgboost joblib
+```
+# Author
+👨‍💻 Nabila Rakib
+
+📧 [Email me](nabila.rakib7@gmail.com)
+🔗 LinkedIn
+
+🚀 If you found this useful, don't forget to ⭐ the repo! 😊🎤
+
