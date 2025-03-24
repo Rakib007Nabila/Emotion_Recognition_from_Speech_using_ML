@@ -16,6 +16,23 @@ You can find this dataset in kaggle or click on below link.
 
 [Dataset for Speech Recognition](https://www.kaggle.com/uwrfkaggler/ravdess-emotional-speech-audio)
 
+# Technologies & Libraries Used
+**Python** – Core programming language for implementation
+
+**TensorFlow & Keras** – Used to build and train the CNN model
+
+**Librosa** – Used for audio processing and feature extraction (MFCC)
+
+**Scikit-Learn** – Used for data preprocessing, encoding, and machine learning models (SVM, Random Forest)
+
+**XGBoost** – Used for training an optimized XGBoost classifier
+
+**Matplotlib & Seaborn** – Used for visualization of accuracy and confusion matrices
+
+**NumPy & Pandas** – Used for handling datasets and numerical operations
+
+**Joblib** – Used for saving and loading trained models
+
 The RAVDESS dataset is a widely used benchmark for speech-based emotion recognition. It consists of 1,440 high-quality audio files featuring 24 professional actors (12 male, 12 female) expressing eight different emotions:
 
 - Neutral (01)
