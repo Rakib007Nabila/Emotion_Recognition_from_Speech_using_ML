@@ -2,11 +2,11 @@
 
 This project focuses on recognizing human emotions from speech audio using Machine Learning (ML) and Deep Learning (DL) techniques.
 
-We use **MFCC feature** extraction and train models including CNN, SVM, Random Forest, and XGBoost to classify emotions into Angry, Sad, Neutral, and Happy.
+**MFCC feature** extraction is used and the model is trained using CNN, SVM, Random Forest, and XGBoost to classify emotions into Angry, Sad, Neutral, and Happy.
 
 # 📌 Project Overview
 
-# **Dataset:**
+# **Dataset**
 
 Dataset Source - RAVDESS
 
@@ -47,16 +47,16 @@ Statement "dogs" (02)
 
 Female, as the actor ID number is even.
 
-# Features: 
+# Features 
 Extracted MFCC features (40 coefficients per sample).
 
-# Models Used:
+# Models Used
 - Convolutional Neural Network (CNN)
 - Support Vector Machine (SVM)
 - Random Forest Classifier
 - XGBoost Classifier
 
-# Model Selection: 
+# Model Selection 
 The best-performing model is saved and used for testing.
 
 # Steps to Implement
@@ -210,12 +210,12 @@ else:
 
 | **Model**          | **Accuracy** |
 |--------------------|-------------|
-| **CNN**           | 87.5%  |
-| **SVM**           | 82.3%    |
-| **Random Forest** | 84.1%    |
-| **XGBoost**       | 85.7%    |
+| **CNN**           | 82%  |
+| **SVM**           | 48%    |
+| **Random Forest** | 74%    |
+| **XGBoost**       | 75%    |
 
-**Best Model:** CNN (87.5%)
+**Best Model:** CNN (82%)
 
 # Installation & Usage
 **Install Dependencies**
@@ -226,7 +226,7 @@ pip install librosa numpy pandas scikit-learn tensorflow matplotlib xgboost jobl
 👨‍💻 Nabila Rakib
 
 📧 [Email me](nabila.rakib7@gmail.com)
-🔗 LinkedIn
+🔗 Github:[Rakib007Nabila](https://github.com/Rakib007Nabila)
 
 🚀 If you found this useful, don't forget to ⭐ the repo! 😊🎤
 
